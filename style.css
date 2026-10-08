@@ -1,0 +1,275 @@
+:root {
+  --bg: #0d1117;
+  --bg-panel: #161b22;
+  --bg-panel-2: #1c2330;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-hover: #79b8ff;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  background: radial-gradient(1200px 600px at 50% -10%, #1b2a4a 0%, var(--bg) 60%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- 헤더 ---------- */
+.app-header {
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- 메인 ---------- */
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---------- 드롭존 ---------- */
+.drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover {
+  border-color: var(--accent);
+  background: rgba(88, 166, 255, 0.06);
+}
+
+.drop-zone.dragover {
+  transform: scale(1.01);
+}
+
+.drop-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.drop-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.drop-hint {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.upload-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* ---------- 버튼 ---------- */
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  font-family: inherit;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: var(--bg-panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: #242e3f;
+  border-color: var(--accent);
+}
+
+/* ---------- 탭 ---------- */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.7rem 0.5rem;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.tab:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.tab.active {
+  background: rgba(88, 166, 255, 0.15);
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.tab-panel {
+  display: none;
+  text-align: center;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tab-panel canvas {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.panel-note {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ---------- 3D 컨테이너 ---------- */
+.three-container {
+  width: 100%;
+  height: 55vh;
+  min-height: 320px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: #05070c;
+  cursor: grab;
+}
+
+.three-container:active {
+  cursor: grabbing;
+}
+
+/* ---------- 컨트롤 ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.control.checkbox {
+  cursor: pointer;
+  user-select: none;
+}
+
+.control input[type="range"] {
+  width: 160px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.control input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.control b {
+  color: var(--accent-hover);
+}
+
+/* ---------- 푸터 ---------- */
+.app-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 600px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .controls {
+    gap: 0.75rem;
+  }
+
+  .control input[type="range"] {
+    width: 120px;
+  }
+}

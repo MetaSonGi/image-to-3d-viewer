@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이미지 → 3D 뷰어 | Image to 3D Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <h1>📷 이미지 → 3D 뷰어</h1>
+      <p class="subtitle">2D 사진을 업로드하면 깊이 맵을 생성하고 Three.js로 입체 3D 뷰를 만듭니다</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- 업로드 영역 -->
+    <section id="uploadSection" class="panel">
+      <div id="dropZone" class="drop-zone">
+        <div class="drop-icon">🖼️</div>
+        <p class="drop-title">이미지를 여기로 드래그하거나 클릭해서 선택하세요</p>
+        <p class="drop-hint">JPG / PNG / WebP · 자동으로 최대 512px로 축소됩니다</p>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </div>
+      <div class="upload-actions">
+        <button id="sampleBtn" class="btn btn-secondary">🎨 테스트 패턴으로 체험하기</button>
+      </div>
+    </section>
+
+    <!-- 결과 영역 -->
+    <section id="resultSection" class="panel hidden">
+      <div class="tabs">
+        <button class="tab active" data-tab="original">🖼️ 원본</button>
+        <button class="tab" data-tab="depth">🌫️ 깊이 맵</button>
+        <button class="tab" data-tab="view3d">🧊 3D 뷰</button>
+      </div>
+
+      <div class="tab-panels">
+        <div class="tab-panel active" id="panel-original">
+          <canvas id="originalCanvas"></canvas>
+          <p class="panel-note">업로드한 원본 이미지 (최대 512px로 리사이즈됨)</p>
+        </div>
+
+        <div class="tab-panel" id="panel-depth">
+          <canvas id="depthCanvas"></canvas>
+          <p class="panel-note">밝기 기반 깊이 맵 — 밝을수록 앞으로 튀어나옵니다</p>
+        </div>
+
+        <div class="tab-panel" id="panel-view3d">
+          <div id="threeContainer" class="three-container"></div>
+          <div class="controls">
+            <label class="control">
+              <span>깊이 강도 <b id="depthValue">1.0</b></span>
+              <input type="range" id="depthStrength" min="0" max="3" step="0.1" value="1" />
+            </label>
+            <label class="control checkbox">
+              <input type="checkbox" id="autoRotate" checked />
+              <span>자동 회전</span>
+            </label>
+            <label class="control checkbox">
+              <input type="checkbox" id="wireframe" />
+              <span>와이어프레임</span>
+            </label>
+            <button id="newImageBtn" class="btn btn-secondary">🔄 다른 이미지</button>
+          </div>
+          <p class="panel-note">마우스를 움직이면 시점이 따라다닙니다</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Three.js + Canvas API · 100% 클라이언트 사이드 — 이미지가 서버로 전송되지 않습니다</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
