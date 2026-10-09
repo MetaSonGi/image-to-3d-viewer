@@ -135,6 +135,66 @@ body {
   border-color: var(--accent);
 }
 
+.btn-primary {
+  background: #1f6feb;
+  color: #fff;
+  border: 1px solid #1f6feb;
+}
+
+.btn-primary:hover {
+  background: #388bfd;
+  border-color: #388bfd;
+}
+
+/* ---------- 카메라 모달 ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.modal-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+  box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
+}
+
+.modal-box h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.modal-box video {
+  width: 100%;
+  max-height: 55vh;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.camera-error {
+  margin-top: 0.75rem;
+  color: #ff7b72;
+  font-size: 0.9rem;
+}
+
+.modal-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
 /* ---------- 탭 ---------- */
 .tabs {
   display: flex;

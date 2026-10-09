@@ -31,6 +31,7 @@
         <input type="file" id="fileInput" accept="image/*" hidden />
       </div>
       <div class="upload-actions">
+        <button id="cameraBtn" class="btn btn-primary">📸 카메라로 찍기</button>
         <button id="sampleBtn" class="btn btn-secondary">🎨 테스트 패턴으로 체험하기</button>
       </div>
     </section>
@@ -76,6 +77,20 @@
       </div>
     </section>
   </main>
+
+  <!-- 카메라 촬영 모달 -->
+  <div id="cameraModal" class="modal hidden">
+    <div class="modal-box">
+      <h2>📸 카메라로 찍기</h2>
+      <video id="cameraPreview" playsinline autoplay muted></video>
+      <p id="cameraError" class="camera-error hidden"></p>
+      <div class="modal-actions">
+        <button id="captureBtn" class="btn btn-primary">📷 촬영하기</button>
+        <button id="cameraCloseBtn" class="btn btn-secondary">닫기</button>
+      </div>
+      <p class="panel-note">촬영한 사진은 기기 안에서만 처리되며 서버로 전송되지 않습니다</p>
+    </div>
+  </div>
 
   <footer class="app-footer">
     <p>Three.js + Canvas API · 100% 클라이언트 사이드 — 이미지가 서버로 전송되지 않습니다</p>
