@@ -89,3 +89,9 @@ It generates a depth map from image luminance (box-blur smoothing + normalizatio
 and renders it as a displaced plane in Three.js. Features drag & drop upload,
 depth-strength slider, wireframe toggle, auto-rotate, and mouse parallax —
 all in a dark modern Korean UI. No build step; just serve the folder statically.
+
+---
+
+## 🔗 관련 프로젝트
+
+- 📸 **[camera-to-3d-viewer](https://github.com/MetaSonGi/camera-to-3d-viewer)** — 카메라로 바로 찍어서 3D로 변환하는 버전 ([Live](https://metasongi.github.io/camera-to-3d-viewer/))
