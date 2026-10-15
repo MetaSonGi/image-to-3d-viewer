@@ -259,8 +259,19 @@ body {
   border-top: 1px solid var(--border);
 }
 
-/* ---------- 반응형 ---------- */
-@media (max-width: 600px) {
+/* ---------- 업로드 에러 ---------- */
+.upload-error {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background: rgba(248, 81, 73, 0.12);
+  border: 1px solid rgba(248, 81, 73, 0.4);
+  border-radius: 8px;
+  color: #ffa198;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ---------- 반응형 ---------- */@media (max-width: 600px) {
   .app-header h1 {
     font-size: 1.5rem;
   }

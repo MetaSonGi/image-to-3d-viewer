@@ -8,7 +8,7 @@
   <script type="importmap">
     {
       "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
       }
     }
   </script>
@@ -33,6 +33,7 @@
       <div class="upload-actions">
         <button id="sampleBtn" class="btn btn-secondary">🎨 테스트 패턴으로 체험하기</button>
       </div>
+      <p id="uploadError" class="upload-error hidden"></p>
     </section>
 
     <!-- 결과 영역 -->
@@ -81,6 +82,18 @@
     <p>Three.js + Canvas API · 100% 클라이언트 사이드 — 이미지가 서버로 전송되지 않습니다</p>
   </footer>
 
+  <script>
+    /* 모듈 로드 실패 감지: 라이브러리를 못 받으면 버튼이 전부 죽으므로 안내 표시 */
+    setTimeout(function(){
+      if (!window.__viewerBooted) {
+        var p = document.getElementById('uploadError');
+        if (p) {
+          p.textContent = '앱을 불러오지 못했습니다. 인터넷 연결을 확인한 뒤 새로고침해주세요.';
+          p.classList.remove('hidden');
+        }
+      }
+    }, 10000);
+  </script>
   <script type="module" src="app.js"></script>
 </body>
 </html>
